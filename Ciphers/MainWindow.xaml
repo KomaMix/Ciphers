@@ -11,7 +11,7 @@
         <TabItem Header="Алгоритм Гаммирования">
             <Frame Source="Pages/1GammingAlgorithmPage.xaml" />
         </TabItem>
-        <TabItem Header="Шифрование файла">
+        <TabItem Header="Создание гаммы">
             <Frame Source="Pages/2GammaGeneratorPage.xaml" />
         </TabItem>
         <TabItem Header="Взлом файла">
