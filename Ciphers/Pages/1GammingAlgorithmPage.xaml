@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Ciphers.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="_1GammingAlgorithmPage">
+      Title="Алгоритм шифрования гаммированием">
 
     <StackPanel Margin="20" HorizontalAlignment="Center" VerticalAlignment="Top" Width="400">
 

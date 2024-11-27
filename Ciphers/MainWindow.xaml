@@ -8,7 +8,7 @@
         Title="MainWindow" Height="700" Width="600"
         FontFamily="Droid Serif" FontSize="14">
     <TabControl>
-        <TabItem Header="Шифрование текста">
+        <TabItem Header="Алгоритм Гаммирования">
             <Frame Source="Pages/1GammingAlgorithmPage.xaml" />
         </TabItem>
         <TabItem Header="Шифрование файла">

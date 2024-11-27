@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ciphers.Enums;
+using Ciphers.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,43 +10,55 @@ namespace Ciphers.Services
 {
     public static class BinaryConverterService
     {
-        public static bool[] StringToBinary(string text)
+        public static bool[] StringToBinary(string text, TextLanguage language)
         {
             if (string.IsNullOrEmpty(text))
                 throw new ArgumentException("Текст не может быть пустым или null.");
 
-            byte[] bytes = Encoding.UTF8.GetBytes(text);
+            string alphabet = AlphabetHelper.GetLowerAlphaForLanguageType(language);
+            int bitLength = Convert.ToString(alphabet.Length, 2).Length;
             List<bool> bitList = new List<bool>();
 
-            foreach (byte b in bytes)
+            foreach (char c in text.ToLower())
             {
-                for (int i = 7; i >= 0; i--)
-                    bitList.Add((b & (1 << i)) != 0);
+                int index = alphabet.IndexOf(c) + 1;
+
+                string binary = Convert.ToString(index, 2).PadLeft(bitLength, '0');
+                foreach (char bit in binary)
+                {
+                    bitList.Add(bit == '1');
+                }
             }
 
             return bitList.ToArray();
         }
 
-        public static string BinaryToString(bool[] bitArray)
+        public static string BinaryToString(bool[] bitArray, TextLanguage language)
         {
             if (bitArray == null || bitArray.Length == 0)
                 throw new ArgumentException("Массив битов не может быть пустым или null.");
-            if (bitArray.Length % 8 != 0)
-                throw new ArgumentException("Длина массива битов должна быть кратна 8.");
 
-            int byteCount = bitArray.Length / 8;
-            byte[] bytes = new byte[byteCount];
+            string alphabet = AlphabetHelper.GetLowerAlphaForLanguageType(language);
+            int bitLength = Convert.ToString(alphabet.Length, 2).Length;
 
-            for (int i = 0; i < byteCount; i++)
+            if (bitArray.Length % bitLength != 0)
+                throw new ArgumentException($"Длина массива битов должна быть кратна {bitLength}.");
+
+            StringBuilder result = new StringBuilder();
+
+            for (int i = 0; i < bitArray.Length; i += bitLength)
             {
-                byte b = 0;
-                for (int j = 0; j < 8; j++)
-                    if (bitArray[i * 8 + j])
-                        b |= (byte)(1 << (7 - j));
-                bytes[i] = b;
+                int index = 0;
+                for (int j = 0; j < bitLength; j++)
+                {
+                    if (bitArray[i + j])
+                        index |= 1 << (bitLength - j - 1);
+                }
+
+                result.Append(alphabet[index - 1]);
             }
 
-            return Encoding.UTF8.GetString(bytes);
+            return result.ToString();
         }
     }
 }

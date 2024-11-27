@@ -32,6 +32,8 @@ namespace Ciphers.Pages
         {
             try
             {
+                var language = GetLanguage();
+
                 string text = originalText.Text;
                 string keyText = key.Text;
 
@@ -41,8 +43,8 @@ namespace Ciphers.Pages
                     return;
                 }
 
-                bool[] textBits = BinaryConverterService.StringToBinary(text);
-                bool[] keyBits = BinaryConverterService.StringToBinary(keyText);
+                bool[] textBits = BinaryConverterService.StringToBinary(text, language);
+                bool[] keyBits = BinaryConverterService.StringToBinary(keyText, language);
 
                 originalBinary.Text = string.Join("", textBits.Select(b => b ? "1" : "0"));
                 binaryKey.Text = string.Join("", keyBits.Select(b => b ? "1" : "0"));
@@ -60,6 +62,8 @@ namespace Ciphers.Pages
         {
             try
             {
+                var language = GetLanguage();
+
                 string encryptedBitsStr = cryptogram.Text;
                 string keyText = key.Text;
 
@@ -70,12 +74,12 @@ namespace Ciphers.Pages
                 }
 
                 bool[] encryptedBits = encryptedBitsStr.Select(c => c == '1').ToArray();
-                bool[] keyBits = BinaryConverterService.StringToBinary(keyText);
+                bool[] keyBits = BinaryConverterService.StringToBinary(keyText, language);
 
                 bool[] decryptedBits = GammaCipherService.Decrypt(encryptedBits, keyBits);
 
                 decryptBinary.Text = string.Join("", decryptedBits.Select(b => b ? "1" : "0"));
-                decryptText.Text = BinaryConverterService.BinaryToString(decryptedBits);
+                decryptText.Text = BinaryConverterService.BinaryToString(decryptedBits, language);
             }
             catch (Exception ex)
             {

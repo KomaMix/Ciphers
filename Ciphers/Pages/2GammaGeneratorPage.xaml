@@ -8,15 +8,35 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="_2GammaGeneratorPage">
 
-    <StackPanel Margin="20" HorizontalAlignment="Center" VerticalAlignment="Top" Width="400">
-        <ComboBox x:Name="comboBoxLanguage" SelectedIndex="0">
+    <StackPanel Margin="20" HorizontalAlignment="Center" VerticalAlignment="Top" Width="500">
+
+        <ComboBox x:Name="comboBoxLanguage" SelectedIndex="0" SelectionChanged="ComboBoxLanguage_SelectionChanged">
             <ComboBoxItem Content="Russian" />
             <ComboBoxItem Content="English" />
         </ComboBox>
-        
-        
 
+        <TextBlock Text="Исходный текст" />
+        <TextBox x:Name="originalText" Style="{DynamicResource LongTextInputStyle}" LostFocus="TextBox_LostFocus" KeyDown="TextBox_KeyDown" />
 
+        <TextBlock Text="Бинарный текст" />
+        <TextBox x:Name="originalBinary" IsReadOnly="True" Style="{DynamicResource LongTextInputStyle}" />
 
+        <TextBlock Text="Сгенерированный ключ" />
+        <TextBox x:Name="binaryKey" IsReadOnly="True" Style="{DynamicResource LongTextInputStyle}" />
+
+        <TextBlock Text="Криптограмма" />
+        <TextBox x:Name="cryptogram" IsReadOnly="True" Style="{DynamicResource LongTextInputStyle}" />
+
+        <TextBlock Text="Расшифрованный текст в бинарном виде" />
+        <TextBox x:Name="decryptBinary" IsReadOnly="True" Style="{DynamicResource LongTextInputStyle}" />
+
+        <TextBlock Text="Расшифрованный текст" />
+        <TextBox x:Name="decryptText" IsReadOnly="True" Style="{DynamicResource LongTextInputStyle}" />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Создать ключ" Click="GenerateGamma_Click" />
+            <Button Content="Шифровать" Click="Encrypt_Click" />
+            <Button Content="Расшифровать" Click="Decrypt_Click" />
+        </StackPanel>
     </StackPanel>
 </Page>
