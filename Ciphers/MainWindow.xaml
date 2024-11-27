@@ -7,9 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         FontFamily="Segoe UI" FontSize="14">
-    <StackPanel>
-        <TextBox Style="{StaticResource LongTextInputStyle}" />
-        <TextBox Style="{StaticResource LongTextInputStyle}" />
-        <TextBox Style="{StaticResource LongTextInputStyle}" />
-    </StackPanel>
+    <TabControl>
+        <TabItem Header="Шифрование текста">
+            <Frame Source="Pages/1GammingAlgorithmPage.xaml" />
+        </TabItem>
+        <TabItem Header="Шифрование файла">
+            <Frame Source="Pages/2GammaGeneratorPage.xaml" />
+        </TabItem>
+        <TabItem Header="Взлом файла">
+            <Frame Source="Pages/2GammaGeneratorPage.xaml" />
+        </TabItem>
+    </TabControl>
 </Window>
