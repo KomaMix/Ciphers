@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ciphers"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        FontFamily="Segoe UI" FontSize="14">
+        Title="MainWindow" Height="700" Width="600"
+        FontFamily="Droid Serif" FontSize="14">
     <TabControl>
         <TabItem Header="Шифрование текста">
             <Frame Source="Pages/1GammingAlgorithmPage.xaml" />

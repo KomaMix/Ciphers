@@ -15,7 +15,21 @@
             <ComboBoxItem Content="English" />
         </ComboBox>
 
-        
+        <TextBlock Text="Исходный текст" />
+        <TextBox Style="{DynamicResource LongTextInputStyle}" />
+        <TextBlock Text="Бинарный текст" />
+        <TextBox Style="{DynamicResource LongTextInputStyle}" />
+        <TextBlock Text="Ключ" />
+        <TextBox Style="{DynamicResource LongTextInputStyle}" />
+        <TextBlock Text="Бинарный вид ключа" />
+        <TextBox Style="{DynamicResource LongTextInputStyle}" />
+        <TextBlock Text="Бинарный вид криптограммы" />
+        <TextBox Style="{DynamicResource LongTextInputStyle}" />
+        <TextBlock Text="Расшифрованный текст в бинарном виде" />
+        <TextBox Style="{DynamicResource LongTextInputStyle}" />
+        <TextBlock Text="Расшифрованный текст" />
+        <TextBox Style="{DynamicResource LongTextInputStyle}" />
+
 
     </StackPanel>
 </Page>

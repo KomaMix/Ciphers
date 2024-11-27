@@ -9,11 +9,12 @@
       Title="_2GammaGeneratorPage">
 
     <StackPanel Margin="20" HorizontalAlignment="Center" VerticalAlignment="Top" Width="400">
-
         <ComboBox x:Name="comboBoxLanguage" SelectedIndex="0">
             <ComboBoxItem Content="Russian" />
             <ComboBoxItem Content="English" />
         </ComboBox>
+        
+        
 
 
 
