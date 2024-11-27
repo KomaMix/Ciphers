@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ciphers"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="MainWindow" Height="450" Width="800"
+        FontFamily="Segoe UI" FontSize="14">
+    <StackPanel>
+        <TextBox Style="{StaticResource LongTextInputStyle}" />
+        <TextBox Style="{StaticResource LongTextInputStyle}" />
+        <TextBox Style="{StaticResource LongTextInputStyle}" />
+    </StackPanel>
 </Window>
