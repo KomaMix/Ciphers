@@ -14,8 +14,8 @@
         <TabItem Header="Создание гаммы">
             <Frame Source="Pages/2GammaGeneratorPage.xaml" />
         </TabItem>
-        <TabItem Header="Взлом файла">
-            <Frame Source="Pages/2GammaGeneratorPage.xaml" />
+        <TabItem Header="Создание гаммы IV">
+            <Frame Source="Pages/3GammingWithIterativeVectorPage.xaml" />
         </TabItem>
     </TabControl>
 </Window>

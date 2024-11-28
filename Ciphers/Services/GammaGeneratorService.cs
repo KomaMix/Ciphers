@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ciphers.Enums;
+using Ciphers.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,9 +53,23 @@ namespace Ciphers.Services
                 }
             }
 
-
-
             return gamma;
+        }
+
+        public static bool[] GenerateIV(TextLanguage language)
+        {
+            string alphabet = AlphabetHelper.GetAlphaForLanguageType(language);
+            int bitLength = (int)Math.Ceiling(Math.Log2(alphabet.Length + 1));
+
+            bool[] bits = new bool[bitLength];
+
+            for (int i = 0; i < bitLength; i++)
+            {
+                bits[i] = _random.Next(2) == 1;
+            }
+
+
+            return bits;
         }
     }
 }
