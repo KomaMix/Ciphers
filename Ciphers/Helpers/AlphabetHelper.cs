@@ -9,29 +9,29 @@ namespace Ciphers.Helpers
 {
     public static class AlphabetHelper
     {
-        private static readonly string _alphaRus = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
-        private static readonly string _alhaEng = "abcdefghijklmnopqrstuvwxyz";
+        private static readonly string _alphaRus = "абвгдежзийклмнопрстуфхцчшщъыьэюя" + "абвгдежзийклмнопрстуфхцчшщъыьэюя".ToUpper();
+        private static readonly string _alhaEng = "abcdefghijklmnopqrstuvwxyz" + "abcdefghijklmnopqrstuvwxyz".ToUpper();
 
 
-        public static string GetEnglishLowerAlpha()
+        public static string GetEnglishAlpha()
         {
             return _alhaEng;
         }
 
-        public static string GetRussianLowerAlpha()
+        public static string GetRussianAlpha()
         {
             return _alphaRus;
         }
 
-        public static string GetLowerAlphaForLanguageType(TextLanguage language)
+        public static string GetAlphaForLanguageType(TextLanguage language)
         {
             if (language == TextLanguage.English)
             {
-                return GetEnglishLowerAlpha();
+                return GetEnglishAlpha();
             }
             else
             {
-                return GetRussianLowerAlpha();
+                return GetRussianAlpha();
             }
         }
     }

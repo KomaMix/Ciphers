@@ -15,11 +15,11 @@ namespace Ciphers.Services
             if (string.IsNullOrEmpty(text))
                 throw new ArgumentException("Текст не может быть пустым или null.");
 
-            string alphabet = AlphabetHelper.GetLowerAlphaForLanguageType(language);
-            int bitLength = Convert.ToString(alphabet.Length, 2).Length;
+            string alphabet = AlphabetHelper.GetAlphaForLanguageType(language);
+            int bitLength = (int)Math.Ceiling(Math.Log2(alphabet.Length + 1));
             List<bool> bitList = new List<bool>();
 
-            foreach (char c in text.ToLower())
+            foreach (char c in text)
             {
                 int index = alphabet.IndexOf(c) + 1;
 
@@ -38,7 +38,7 @@ namespace Ciphers.Services
             if (bitArray == null || bitArray.Length == 0)
                 throw new ArgumentException("Массив битов не может быть пустым или null.");
 
-            string alphabet = AlphabetHelper.GetLowerAlphaForLanguageType(language);
+            string alphabet = AlphabetHelper.GetAlphaForLanguageType(language);
             int bitLength = Convert.ToString(alphabet.Length, 2).Length;
 
             if (bitArray.Length % bitLength != 0)

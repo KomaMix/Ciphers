@@ -76,7 +76,7 @@ namespace Ciphers.Pages
                 }
 
                 bool[] textBits = BinaryConverterService.StringToBinary(text, language);
-                bool[] keyBits = BinaryConverterService.StringToBinary(binaryKey.Text, language);
+                bool[] keyBits = binaryKey.Text.Select(c => c == '1').ToArray();
 
                 originalBinary.Text = string.Join("", textBits.Select(b => b ? "1" : "0"));
 
@@ -110,7 +110,7 @@ namespace Ciphers.Pages
                 }
 
                 bool[] encryptedBits = encryptedBitsStr.Select(c => c == '1').ToArray();
-                bool[] keyBits = BinaryConverterService.StringToBinary(binaryKey.Text, language);
+                bool[] keyBits = binaryKey.Text.Select(c => c == '1').ToArray(); 
 
                 bool[] decryptedBits = GammaCipherService.Decrypt(encryptedBits, keyBits);
 

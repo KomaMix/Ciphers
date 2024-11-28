@@ -39,7 +39,7 @@ namespace Ciphers.Helpers
 
         public static bool CheckTextIsAlphabet(string text, TextLanguage language)
         {
-            string alpha = AlphabetHelper.GetLowerAlphaForLanguageType(language);
+            string alpha = AlphabetHelper.GetAlphaForLanguageType(language);
 
             foreach (char ch in text.ToLower())
             {
